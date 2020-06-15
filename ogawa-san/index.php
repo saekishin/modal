@@ -162,6 +162,88 @@ Template Name: cafe
 		<!-- <div class="swiper-scrollbar"></div>  -->
 	</div>
 
+	<div>
+		aaa
+	</div>
+
+	<!-- Q&A -->
+	<div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+		<div class="card">
+			<div class="card-header" role="tab" id="headingOne">
+			<h5 class="mb-0">
+				<a class="text-body d-block p-3 m-n3" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">
+				Q.料金について知りたい
+				</a>
+			</h5>
+			</div><!-- /.card-header -->
+			<div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+			<div class="card-body">
+				料金の目安は<br>「LPコース：5万円〜」<br>「ブログ構築コース：15万円〜」<br>「SEO対策コース：30万円〜」となります
+			</div><!-- /.card-body -->
+			</div><!-- /.collapse -->
+		</div><!-- /.card -->
+		<div class="card">
+			<div class="card-header" role="tab" id="headingTwo">
+			<h5 class="mb-0">
+				<a class="collapsed text-body d-block p-3 m-n3" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
+				Q.制作期間について知りたい
+				</a>
+			</h5>
+			</div><!-- /.card-header -->
+			<div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+			<div class="card-body">
+				制作期間の目安は<br>「LPコース：1ヶ月」<br>「ブログ構築コース：1.5ヶ月」<br>「SEO対策コース：3ヶ月」となります<br>※お急ぎの依頼がございましたら別途ご相談下さい。
+			</div><!-- /.card-body -->
+			</div><!-- /.collapse -->
+		</div><!-- /.card -->
+		<div class="card">
+			<div class="card-header" role="tab" id="headingThree">
+			<h5 class="mb-0">
+				<a class="collapsed text-body d-block p-3 m-n3" data-toggle="collapse" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree">
+				Q.製作者について知りたい
+				</a>
+			</h5>
+			</div><!-- /.card-header -->
+			<div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+			<div class="card-body">
+			Raumでは「吉田」「佐伯」の２名のエンジニアが制作を担当しております。<br>吉田：情熱派で強いこだわりを持って制作業務に取り組んでいます。営業も担当しています<br>佐伯：技術開発担当。新しい物好きで常に新しい技術を学び魅力的なWebサイト制作を目指している。<br>ジョナサン：３人目の従業員、絶対可愛いと思う。
+			</div><!-- /.card-body -->
+			</div><!-- /.collapse -->
+		</div><!-- /.card -->
+	</div><!-- /#accordion -->
+
+	<!-- Modal -->
+	<button type="button" class="btn btn-info m-3" data-toggle="modal" data-target="#exampleModal" data-whatever="@president">吉田のポートフォリオ</button><br>
+	<button type="button" class="btn btn-success m-3" data-toggle="modal" data-target="#exampleModal" data-whatever="@vice-president">佐伯のポートフォリオ</button><br>
+	<button type="button" class="btn btn-secondary m-3" data-toggle="modal" data-target="#exampleModal" data-whatever="@officer">ジョナサン</button>
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">新メッセージ</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			<form>
+			<div class="form-group">
+				<label for="recipient-name">受信者：</label>
+				<input type="text" class="form-control" id="recipient-name">
+			</div>
+			<div class="form-group">
+				<label for="message-text">メッセージ：</label>
+				<textarea class="form-control" id="message-text"></textarea>
+			</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+			<button type="button" class="btn btn-primary">送信</button>
+		</div>
+		</div>
+	</div>
+	</div>
 
 
 
@@ -409,6 +491,19 @@ Template Name: cafe
 <div>
 
 <script>
+	// モーダルの記述
+	$('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // モーダル切替えボタン
+  var recipient = button.data('whatever') // data-* 属性から情報を抽出
+  // 必要に応じて、ここでAJAXリクエストを開始可能（コールバックで更新することも可能）
+  // モーダルの内容を更新。ここではjQueryを使用するが、代わりにデータ・バインディング・ライブラリまたは他のメソッドを使用することも可能
+  var modal = $(this)
+  modal.find('.modal-title').text(recipient + 'にメッセージを送信')
+  modal.find('.modal-body input').val(recipient)
+})
+
+
+	// swiperの記述
   var mySwiper = new Swiper ('.swiper-container', {
     // ここからオプション
     loop: true,
